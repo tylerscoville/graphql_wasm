@@ -1,0 +1,22 @@
+[package]
+publish = false
+name = "graphql-wasm"
+authors = ["Tyler Scoville <tscoville@zendesk.com>"]
+description = "Proxy-Wasm plugin for working with graphql requests"
+version = "0.0.1"
+edition = "2021"
+
+[dependencies]
+apollo-parser = "0.8.3"
+log = "0.4.22"
+proxy-wasm = "0.2.2"
+
+[lib]
+crate-type = ["cdylib"]
+
+[profile.release]
+lto = true
+opt-level = 3
+codegen-units = 1
+panic = "abort"
+strip = "debuginfo"
